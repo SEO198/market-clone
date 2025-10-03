@@ -30,6 +30,24 @@ footer {
   font-weight: bold;
 }
 
+@keyframes icons-floating {
+  0% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
 .footer-icons__img {
   width: 40px;
+
+  margin-bottom: 10px;
+}
+
+.footer-icons__img:hover {
+  animation: 2s icons-floating infinite;
 }
