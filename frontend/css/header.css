@@ -1,6 +1,7 @@
 header {
   margin-top: 10px;
   border: 1px solid #ededef;
+  border-top: none;
   padding-bottom: 10px;
 }
 

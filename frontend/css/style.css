@@ -30,7 +30,7 @@ body {
   color: white;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1000px) {
   .media-info-msg {
     /* opacity: 1; */
     display: none;
