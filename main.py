@@ -8,6 +8,19 @@ import sqlite3
 con = sqlite3.connect('db.db', check_same_thread=False)
 cur = con.cursor()
 
+# 배포할 때 다른 사람의 DB가 비어 있을 경우 자동으로 테이블을 생성하기 위해 IF NOT EXISTS를 사용
+cur.execute(f"""
+            CREATE TABLE IF NOT EXISTS items (
+	            id INTEGER PRIMARY KEY,
+	            title TEXT NOT NULL,
+	            image BLOB,
+	            price INTEGER,
+	            description TEXT,
+	            place TEXT NOT NULL,
+	            insertAt INTEGER NOT NULL
+            );
+            """)
+
 app = FastAPI()
 
 @app.post('/items')
@@ -43,7 +56,7 @@ async def get_image(item_id):
     image_bytes = cur.execute(f"""
                               SELECT image FROM items WHERE id = {item_id}
                               """).fetchone()[0]    
-    return Response(content=bytes.fromhex(image_bytes))
+    return Response(content=bytes.fromhex(image_bytes), media_type='image/*')
     
 
 
