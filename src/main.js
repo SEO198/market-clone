@@ -1,8 +1,7 @@
 import { mount } from "svelte";
 import App from "./App.svelte";
+import "../firebase-config.js";
 
-const app = mount(App, {
+mount(App, {
   target: document.getElementById("app"),
 });
-
-export default app;

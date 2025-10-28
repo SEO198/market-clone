@@ -48,6 +48,12 @@ footer {
   margin-bottom: 10px;
 }
 
+button.footer-icons__img {
+  width: 50px;
+
+  margin-bottom: 10px;
+}
+
 .footer-icons__img:hover {
   animation: 2s icons-floating infinite;
 }
